@@ -4,6 +4,9 @@ import Main from './layouts/Main';
 import HomePage from './components/HomePage';
 import { AuthContext } from './contexts/auth.context';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Courses from './components/Courses';
+import FAQ from './components/FAQ';
+import Blog from './components/Blog';
 
 function App() {
   const authTest = useContext(AuthContext);
@@ -21,6 +24,18 @@ function App() {
         {
           path: "/home",
           element: <HomePage/>
+        },
+        {
+          path: "/courses",
+          element: <Courses/>
+        },
+        {
+          path: "/faq",
+          element: <FAQ/>
+        },
+        {
+          path: "/blog",
+          element: <Blog/>
         }
       ]
     },
