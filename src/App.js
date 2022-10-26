@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Courses from './components/Courses';
 import FAQ from './components/FAQ';
 import Blog from './components/Blog';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   const authTest = useContext(AuthContext);
@@ -36,6 +38,14 @@ function App() {
         {
           path: "/blog",
           element: <Blog/>
+        },
+        {
+          path: "/login",
+          element: <Login/>
+        },
+        {
+          path: "/register",
+          element: <Register/>
         }
       ]
     },

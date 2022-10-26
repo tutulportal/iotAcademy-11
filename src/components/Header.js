@@ -23,6 +23,7 @@ const Header = () => {
                     <li><Link to={'/blog'}>Blog</Link></li>
                 </nav>
                 <div className="side-extra-menu">
+                    <Link className='login-btn' to={'/login'}>Login</Link>
                     <span className='modes'>
                         {
                             darkMode ? <SunIcon onClick={handleDarkMode} title="Click to make Light Mode" height="24px"/> : <MoonIcon onClick={handleDarkMode} title="Click to make Dark Mode" height="24px"/>
