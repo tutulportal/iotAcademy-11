@@ -70,6 +70,9 @@
 
 .login-btn{
     text-decoration: none;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
     color: #ffffff;
     background-color: rgb(60, 177, 255);
     border: 1px solid rgb(60, 177, 255);
@@ -84,6 +87,34 @@
     background-color: transparent;
     color:rgb(60, 177, 255);
     border: 1px solid rgb(60, 177, 255);
+}
+
+.logout-and-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.profile-icon{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+    border: 3px solid #ffffff;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    background-color: #083A55;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.profile-icon > img{
+    width: 100%;
 }
 
 
@@ -274,4 +305,13 @@
 
 .social-login > button:hover{
     background-color: #083A55;
+}
+
+/* error message */
+.error-msg{
+    color: rgb(255, 0, 64);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 0;
 }
