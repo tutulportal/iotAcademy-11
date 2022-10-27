@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import './MasterComponentsCss.css';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import { MoonIcon, SunIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import { useState, useContext } from 'react';
 import { AuthContext } from './../contexts/auth.context';
 
@@ -11,6 +11,7 @@ const Header = () => {
     const [darkMode, setDarkMode] = useState(false);
     const {user, logOut} = useContext(AuthContext);
     const handleDarkMode = () => setDarkMode(!darkMode);
+    const [mobileMenu, setMobileMenu] = useState(false);
 
     const handleLogOut = () =>{
         logOut()
@@ -18,6 +19,10 @@ const Header = () => {
             navigate('/login');
         });
     };
+
+    const handleMobileMenu = () =>{
+        setMobileMenu(!mobileMenu);
+    }
 
     return (
         <div className='header-bar'>
@@ -37,10 +42,16 @@ const Header = () => {
                     }
                     <span className='modes'>
                         {
-                            darkMode ? <SunIcon onClick={handleDarkMode} title="Click to make Light Mode" height="24px"/> : <MoonIcon onClick={handleDarkMode} title="Click to make Dark Mode" height="24px"/>
+                            darkMode ? <SunIcon onClick={handleDarkMode} title="Click to make Light Mode" height="24px"/> : <><MoonIcon className='desktopMoon' onClick={handleDarkMode} title="Click to make Dark Mode" height="24px"/> {mobileMenu ? <XMarkIcon onClick={handleMobileMenu} className='mobileIcon' title="Click to make Dark Mode" height="30px"/> : <Bars3BottomRightIcon onClick={handleMobileMenu} className='mobileIcon' title="Click to make Dark Mode" height="30px"/>}</>
                         }
                     </span>
                 </div>
+            </div>
+            <div className={`mobile-menu ${mobileMenu ? 'active' : ''}`}>
+                <li><Link to={'/home'}>Home</Link></li>
+                <li><Link to={'/courses'}>Courses</Link></li>
+                <li><Link to={'/faq'}>FAQ</Link></li>
+                <li><Link to={'/blog'}>Blog</Link></li>
             </div>
         </div>
     );

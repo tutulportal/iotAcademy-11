@@ -28,20 +28,20 @@ function App() {
         },
         {
           path: "/courses",
-          loader: async () => fetch('http://localhost:5000/courses'),
+          loader: async () => fetch('https://iotacademy-server.vercel.app/courses/'),
           element: <Courses/>
         },
         {
           path: "/course-details/:id",
           loader: async ({params}) =>{
-            return fetch(`http://localhost:5000/courses/${params.id}`);
+            return fetch(`https://iotacademy-server.vercel.app/courses/${params.id}`);
           },
           element: <CourseDetails/>
         },
         {
           path: "/checkout/:id",
           loader: async ({params}) =>{
-            return fetch(`http://localhost:5000/courses/${params.id}`);
+            return fetch(`https://iotacademy-server.vercel.app/courses/${params.id}`);
           },
           element: <PrivateRoute><CheckOut/></PrivateRoute>
         },
