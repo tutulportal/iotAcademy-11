@@ -1,9 +1,11 @@
 import React from 'react';
+import './MasterComponentsCss.css';
+import HeroSection from './HeroSection';
 
 const HomePage = () => {
     return (
-        <div>
-            Welcome To Home Page
+        <div className='home-wrapper'>
+            <HeroSection></HeroSection>
         </div>
     );
 };
