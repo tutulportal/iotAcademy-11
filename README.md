@@ -1,6 +1,6 @@
 # iotAcademy - Client Site
 
-Live View - 
+Live View - https://iotacademy-69d49.web.app/
 
 ## Features
 1. You can find more than 6 category of courses here
