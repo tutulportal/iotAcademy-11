@@ -10,6 +10,7 @@ import Register from './components/Register';
 import PrivateRoute from './routes/PrivateRoute';
 import CourseDetails from './components/CourseDetails';
 import CheckOut from './components/CheckOut';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
     },
     {
       path: "*",
-      element: <div>Not found</div>
+      element: <NotFound/>
     }
   ])
 
