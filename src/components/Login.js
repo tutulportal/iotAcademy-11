@@ -1,6 +1,6 @@
 import React from 'react';
 import './MasterComponentsCss.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/auth.context';
 import { useState } from 'react';
@@ -9,6 +9,9 @@ const Login = () => {
 
     const {loginWithGoogle, loginWithGithub, loginWithEmailPass} = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const [emailFountError, setEmailFoundError] = useState(false);
 
@@ -21,7 +24,7 @@ const Login = () => {
         .then(res => {
             console.log(res);
             setEmailFoundError(false);
-            navigate('/');
+            navigate(from, {replace: true});
         })
         .catch(err => {
             setEmailFoundError(true);
@@ -32,7 +35,7 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
         loginWithGoogle()
         .then(res =>{
-            navigate('/');
+            navigate(from, {replace: true});
         })
         .catch(err =>{
             console.error(err);
@@ -42,7 +45,7 @@ const Login = () => {
     const handleGithubSignIn = () =>{
         loginWithGithub()
         .then(res =>{
-            navigate('/');
+            navigate(from, {replace: true});
         })
         .catch(err =>{
             console.error(err);

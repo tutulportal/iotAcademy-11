@@ -33,7 +33,7 @@ const Header = () => {
                 </nav>
                 <div className="side-extra-menu">
                     {
-                        user ? <span className='logout-and-profile'><button onClick={handleLogOut} className='login-btn' >Logout</button> <span className='profile-icon'><img src={user.photoURL} alt="" /></span></span> : <Link className='login-btn' to={'/login'}>Login</Link>
+                        user ? <span className='logout-and-profile'><button onClick={handleLogOut} className='login-btn' >Logout</button> <span className='profile-icon'><img src={user.photoURL} alt="" /></span><span className='user-name-on-hover'><p>{user.displayName}</p></span></span> : <Link className='login-btn' to={'/login'}>Login</Link>
                     }
                     <span className='modes'>
                         {

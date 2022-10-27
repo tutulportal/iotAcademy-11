@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../contexts/auth.context';
 import { useState } from 'react';
 
@@ -8,6 +8,9 @@ const Register = () => {
     const {user, regWithEmailPass, updateUserOnRegistration} = useContext(AuthContext);
 
     const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const [passwordLengthError, setPasswordLengthError] = useState(false);
     const [emailAlreadyUsed, setEmailAlreadyUsed] = useState(false);
@@ -28,7 +31,7 @@ const Register = () => {
             .then(res =>{
                 setEmailAlreadyUsed(false);
                 updateProfileOfUser(name, photoUrl);
-                navigate('/');
+                navigate(from, {replace: true});
             })
             .catch(err =>{
                 setEmailAlreadyUsed(true);

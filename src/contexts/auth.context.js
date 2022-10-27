@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) =>{
     }, [auth])
 
     const allValues = {
-        user, setUser, loginWithGoogle, loginWithGithub, logOut, regWithEmailPass, updateUserOnRegistration, loginWithEmailPass
+        user, loading, setUser, loginWithGoogle, loginWithGithub, logOut, regWithEmailPass, updateUserOnRegistration, loginWithEmailPass
     };
     return (
         <AuthContext.Provider value={allValues}>

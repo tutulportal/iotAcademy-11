@@ -7,6 +7,9 @@ import FAQ from './components/FAQ';
 import Blog from './components/Blog';
 import Login from './components/Login';
 import Register from './components/Register';
+import PrivateRoute from './routes/PrivateRoute';
+import CourseDetails from './components/CourseDetails';
+import CheckOut from './components/CheckOut';
 
 function App() {
 
@@ -25,7 +28,22 @@ function App() {
         },
         {
           path: "/courses",
+          loader: async () => fetch('http://localhost:5000/courses'),
           element: <Courses/>
+        },
+        {
+          path: "/course-details/:id",
+          loader: async ({params}) =>{
+            return fetch(`http://localhost:5000/courses/${params.id}`);
+          },
+          element: <CourseDetails/>
+        },
+        {
+          path: "/checkout/:id",
+          loader: async ({params}) =>{
+            return fetch(`http://localhost:5000/courses/${params.id}`);
+          },
+          element: <PrivateRoute><CheckOut/></PrivateRoute>
         },
         {
           path: "/faq",
